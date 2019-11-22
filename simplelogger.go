@@ -160,6 +160,9 @@ func Fatal(args ...interface{}) {
 }
 
 func PanicIfError(err error, args ...interface{}) {
+	if len(args) == 0 {
+		args = []interface{}{err}
+	}
 	if err != nil {
 		Panic(args...)
 	}
@@ -172,6 +175,9 @@ func PanicfIfError(err error, format string, args ...interface{}) {
 }
 
 func FatalIfError(err error, args ...interface{}) {
+	if len(args) == 0 {
+		args = []interface{}{err}
+	}
 	if err != nil {
 		Fatal(args...)
 	}
